@@ -1,0 +1,67 @@
+{
+  "applications": {
+    "aboutme": {
+      "text": "Info",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "eightball": {
+      "text": "Maybe...",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "solitare": {
+      "text": "Solitare",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "skills": {
+      "text": "Skills",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "resume": {
+      "text": "Resume",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "email": {
+      "text": "E-Mail",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "threedee": {
+      "text": "3-D",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "video": {
+      "text": "Video",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    },
+    "music": {
+      "text": "Music",
+      "classname": "desktop-icon",
+      "activeState": false,
+      "openApp": false,
+      "content": ""
+    }
+  }
+}

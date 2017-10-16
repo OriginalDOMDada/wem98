@@ -1,8 +1,8 @@
 <template>
    <div class="my-applications">
-      <div class="application" v-for="(app, name) in applications" v-draggable v-bind:id="name">
+      <div class="application" v-for="(app, name) in appData.applications" v-draggable v-bind:id="name">
         <div class="desktop" @dblclick ="app.openApp = true">
-          <img v-bind:src="app.svg" v-bind:class="app.classname">
+          <img v-for="(icon, iconName) in icons" v-if="iconName === name" v-bind:src="icon.svg" v-bind:class="app.classname">
           <div class="nest">
             <p>{{app.text}}</p>
           </div>
@@ -12,83 +12,39 @@
 </template>
 
 <script>
+  import appData from '../appData.json'
   export default {
     name: 'AppIcons',
     data () {
       return {
-        applications: {
+        appData,
+        icons: {
           aboutme: {
-            svg: require('../assets/svg/icons-01.svg'),
-            text: 'Info',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: "<p>Hello,<br> My name is William Mannie, I am a magical unicorn that likes to create really cool shit. I currently blaze the streets of Washinton, D.C., where by day I am the official #wintern at nclud, a creative desin agency. To maintain my survial I like eating bomb ass food, taking long trots and, hunting the internet for awesomeness. My areas of expertiese lie within fron-end design/devlopment and illustrating. Check out my portforlio and see what I've been up to lately.<p>"
+            svg: require('../assets/svg/icons-01.svg')
           },
           eightball: {
-            svg: require('../assets/svg/icons-02.svg'),
-            text: 'Maybe...',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
-
+            svg: require('../assets/svg/icons-02.svg')
           },
           solitare: {
-            svg: require('../assets/svg/icons-03.svg'),
-            text: 'Solitare',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-03.svg')
           },
           skills: {
-            svg: require('../assets/svg/icons-04.svg'),
-            text: 'Skills',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-04.svg')
           },
           resume: {
-            svg: require('../assets/svg/icons-05.svg'),
-            text: 'Resume',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-05.svg')
           },
           email: {
-            svg: require('../assets/svg/icons-06.svg'),
-            text: 'E-Mail',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-06.svg')
           },
           threedee: {
-            svg: require('../assets/svg/icons-07.svg'),
-            text: '3-D',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-07.svg')
           },
           video: {
-            svg: require('../assets/svg/icons-08.svg'),
-            text: 'Video',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/0xYkalENxPk?modestbranding=1&autohide=1&showinfo=0&controls=0' frameborder='0' allowfullscreen></iframe></div>"
+            svg: require('../assets/svg/icons-08.svg')
           },
           music: {
-            svg: require('../assets/svg/icons-09.svg'),
-            text: 'Music',
-            classname: 'desktop-icon',
-            activeState: false,
-            openApp: false,
-            content: ''
+            svg: require('../assets/svg/icons-09.svg')
           }
         }
       }

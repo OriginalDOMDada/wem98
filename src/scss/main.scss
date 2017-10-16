@@ -54,6 +54,14 @@ body {
     padding: 10px 10px 10px 30px;
     float: left;
   }
+  #todaysDate {
+    color: white;
+    float: right;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    padding: 17px 30px;
+    font-weight: bold;
+  }
 }
 
 .panel {
@@ -228,9 +236,48 @@ button.opt {
   padding: 25px 50px;
 }
 
-.og-grid {
-  width: 250px;
-  float: left;
+.my-applications {
+  .application {
+    position: absolute;
+    z-index: 100;
+    // inital positons
+    &#aboutme {
+      top: 50px;
+      left: 0px;
+    }
+    &#eightball {
+      top: 167px;
+      left: 0px;
+    }
+    &#solitare {
+      top: 284px;
+      left: 0px;
+    }
+    &#skills {
+      top: 401px;
+      left: 0px;
+    }
+    &#resume {
+      top: 518px;
+      left: 0px;
+    }
+    &#email {
+      top: 50px;
+      left: 100px;
+    }
+    &#threedee {
+      top: 167px;
+      left: 100px;
+    }
+    &#music {
+      top: 284px;
+      left: 100px;
+    }
+    &#video {
+      top: 401px;
+      left: 100px;
+    }
+  }
 }
 
 .desktop {
@@ -239,7 +286,6 @@ button.opt {
   border: none;
   background: transparent;
   display: inline-block;
-  // float: right;
   padding: 20px;
   z-index: 100;
   .desktop-icon {

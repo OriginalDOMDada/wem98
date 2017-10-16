@@ -44,6 +44,13 @@ body {
     height: 30px;
     padding: 10px 10px 10px 30px;
     float: left; }
+  .header #todaysDate {
+    color: white;
+    float: right;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    padding: 17px 30px;
+    font-weight: bold; }
 
 .panel {
   width: 100%;
@@ -227,9 +234,36 @@ button.opt {
   position: fixed;
   padding: 25px 50px; }
 
-.og-grid {
-  width: 250px;
-  float: left; }
+.my-applications .application {
+  position: absolute;
+  z-index: 100; }
+  .my-applications .application#aboutme {
+    top: 50px;
+    left: 0px; }
+  .my-applications .application#eightball {
+    top: 167px;
+    left: 0px; }
+  .my-applications .application#solitare {
+    top: 284px;
+    left: 0px; }
+  .my-applications .application#skills {
+    top: 401px;
+    left: 0px; }
+  .my-applications .application#resume {
+    top: 518px;
+    left: 0px; }
+  .my-applications .application#email {
+    top: 50px;
+    left: 100px; }
+  .my-applications .application#threedee {
+    top: 167px;
+    left: 100px; }
+  .my-applications .application#music {
+    top: 284px;
+    left: 100px; }
+  .my-applications .application#video {
+    top: 401px;
+    left: 100px; }
 
 .desktop {
   width: auto;
