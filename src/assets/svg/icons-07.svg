@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#DEDEDE;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#231F20;}
+	.st3{fill:#0000FF;}
+	.st4{clip-path:url(#SVGID_2_);}
+	.st5{fill:none;}
+	.st6{clip-path:url(#SVGID_4_);}
+	.st7{fill:#5D5D5D;}
+	.st8{fill:#FF0080;}
+	.st9{fill:#FFFF00;}
+	.st10{fill:#00FF80;}
+	.st11{fill-rule:evenodd;clip-rule:evenodd;fill:#00FF80;}
+	.st12{clip-path:url(#SVGID_6_);}
+	.st13{clip-path:url(#SVGID_8_);}
+	.st14{clip-path:url(#SVGID_10_);}
+	.st15{display:none;fill:none;stroke:#FF0080;stroke-linecap:round;stroke-miterlimit:10;}
+	.st16{clip-path:url(#SVGID_12_);}
+	.st17{clip-path:url(#SVGID_14_);}
+	.st18{clip-path:url(#SVGID_16_);}
+	.st19{clip-path:url(#SVGID_18_);}
+	.st20{clip-path:url(#SVGID_20_);}
+	.st21{clip-path:url(#SVGID_22_);}
+	.st22{clip-path:url(#SVGID_24_);}
+	.st23{clip-path:url(#SVGID_26_);}
+	.st24{clip-path:url(#SVGID_28_);}
+	.st25{clip-path:url(#SVGID_30_);}
+	.st26{clip-path:url(#SVGID_32_);}
+	.st27{clip-path:url(#SVGID_34_);}
+	.st28{clip-path:url(#SVGID_36_);}
+	.st29{clip-path:url(#SVGID_38_);}
+</style>
+<rect x="32.5" y="38.1" class="st15" width="8.5" height="10.5"/>
+<g>
+	<g>
+		<g>
+			<g>
+				<defs>
+					<path id="SVGID_11_" d="M4.6,35.9L19.5,9.4c0.3-0.6,1.1-0.7,1.6-0.3l6.1,5.6c0.3,0.3,0.3,0.7,0,1l-2.1,2.3
+						c-0.3,0.3-0.7,0.3-1,0l-2.4-2.2c-0.2-0.2-0.6-0.1-0.7,0.2l-7.5,20.6H5C4.6,36.6,4.4,36.2,4.6,35.9z"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_11_"  style="overflow:visible;"/>
+				</clipPath>
+				<g class="st4">
+					<rect x="20.5" y="-21.2" class="st5" width="62.8" height="62.8"/>
+					<rect x="20.5" y="-21.2" class="st0" width="62.8" height="62.8"/>
+				</g>
+				<g class="st4">
+					<rect x="-42.4" y="-21.2" class="st5" width="62.8" height="62.8"/>
+					<rect x="-42.4" y="-21.2" class="st0" width="62.8" height="62.8"/>
+				</g>
+			</g>
+			<path class="st2" d="M14,37.1H5c-0.4,0-0.7-0.2-0.8-0.5c-0.2-0.3-0.2-0.7,0-1l0,0L19,9.1c0.2-0.4,0.6-0.7,1.1-0.8
+				c0.5-0.1,0.9,0.1,1.3,0.4l6.1,5.6c0.2,0.2,0.4,0.5,0.4,0.8c0,0.3-0.1,0.6-0.3,0.9l-2.1,2.3c-0.4,0.5-1.2,0.5-1.7,0.1l-2.3-2.1
+				L14,37.1z M4.6,35.9L5,36.1l0,0L4.6,35.9z M20.4,9.3C20.4,9.3,20.3,9.3,20.4,9.3c-0.3,0-0.4,0.1-0.5,0.3L5,36.1l8.3,0l7.4-20.3
+				c0.1-0.3,0.4-0.5,0.7-0.6c0.3-0.1,0.6,0,0.8,0.2l2.4,2.2c0.1,0.1,0.2,0.1,0.3,0l2.1-2.3c0,0,0-0.1,0-0.1c0,0,0-0.1-0.1-0.1
+				l-6.1-5.6C20.7,9.4,20.5,9.3,20.4,9.3z"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path class="st1" d="M59.8,35.9L44.9,9.4c-0.3-0.6-1.1-0.7-1.6-0.3l-6.1,5.6c-0.3,0.3-0.3,0.7,0,1l2.1,2.3c0.3,0.3,0.7,0.3,1,0
+				l2.4-2.2c0.2-0.2,0.6-0.1,0.7,0.2l7.5,20.6h8.6C59.7,36.6,59.9,36.2,59.8,35.9z"/>
+			<path class="st2" d="M59.3,37.1h-9l-7.6-20.9l-2.3,2.1c-0.5,0.4-1.2,0.4-1.7-0.1L36.7,16c-0.2-0.2-0.3-0.5-0.3-0.9
+				c0-0.3,0.1-0.6,0.4-0.8l6.1-5.6c0.3-0.3,0.8-0.5,1.3-0.4c0.5,0.1,0.9,0.4,1.1,0.8l14.9,26.5c0.2,0.3,0.2,0.7,0,1
+				C60,36.9,59.7,37.1,59.3,37.1z M51,36.1h8.3L44.4,9.6c-0.1-0.1-0.2-0.2-0.4-0.3c-0.2,0-0.3,0-0.5,0.1l-6.1,5.6
+				c0,0-0.1,0.1-0.1,0.1c0,0,0,0.1,0,0.1l2.1,2.3c0.1,0.1,0.2,0.1,0.3,0l2.4-2.2c0.2-0.2,0.5-0.3,0.8-0.2c0.3,0.1,0.6,0.3,0.7,0.6
+				L51,36.1z"/>
+		</g>
+	</g>
+	<polygon class="st1" points="4.2,36.6 4.2,50.5 7.9,55.2 25.7,55.2 29.9,50.5 32,50.5 32,36.6 	"/>
+	<polygon class="st0" points="32,36.6 32,50.5 34.1,50.5 38.3,55.2 56.1,55.2 59.8,50.5 59.8,36.6 	"/>
+	<path class="st2" d="M56.1,55.7H38.3c-0.1,0-0.3-0.1-0.4-0.2L33.9,51h-3.8l-4.1,4.5c-0.1,0.1-0.2,0.2-0.4,0.2H7.9
+		c-0.2,0-0.3-0.1-0.4-0.2l-3.7-4.6c-0.1-0.1-0.1-0.2-0.1-0.3V36.6c0-0.3,0.2-0.5,0.5-0.5h55.6c0.3,0,0.5,0.2,0.5,0.5v13.9
+		c0,0.1,0,0.2-0.1,0.3l-3.7,4.6C56.4,55.6,56.3,55.7,56.1,55.7z M38.5,54.7h17.4l3.4-4.3V37.1H4.7v13.2l3.4,4.3h17.4l4.1-4.5
+		c0.1-0.1,0.2-0.2,0.4-0.2h4.2c0.1,0,0.3,0.1,0.4,0.2L38.5,54.7z"/>
+	<g>
+		<polygon class="st3" points="9.9,50.5 7.9,48.3 7.9,40.8 26.8,40.8 26.8,48.3 24.7,50.5 17.8,50.5 		"/>
+	</g>
+	<g>
+		<polygon class="st8" points="39.3,50.5 37.2,48.3 37.2,40.8 56.1,40.8 56.1,48.3 54.1,50.5 47.2,50.5 		"/>
+	</g>
+</g>
+</svg>
