@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueDraggableResizable from 'vue-draggable-resizable'
 
 Vue.config.productionTip = false
+
+window.$ = window.jQuery = require('jquery')
+Vue.component('vue-draggable-resizable', VueDraggableResizable)
 
 /* eslint-disable no-new */
 new Vue({

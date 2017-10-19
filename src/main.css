@@ -81,9 +81,6 @@ body {
   -moz-animation: slide 15s linear infinite;
   -o-animation: slide 15s linear infinite; }
 
-.draggable.app {
-  position: absolute; }
-
 .st0 {
   fill: #FFFFFF; }
 
@@ -94,19 +91,25 @@ body {
   fill: #010101; }
 
 .box-md {
-  height: 400px;
-  width: 400px;
+  position: absolute;
   border: 4px solid black;
-  z-index: 150;
-  position: relative; }
+  z-index: 150; }
+  .box-md .big-rap {
+    display: block;
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 20; }
 
 .box-header {
+  position: absolute;
   height: 50px;
   width: 100%;
   border-bottom: 4px solid black;
   background-color: rgba(255, 255, 255, 0.95);
-  position: relative;
-  overflow: hidden; }
+  z-index: 21; }
   .box-header h2 {
     text-align: center;
     font-family: "Arial", sans-serif; }
@@ -282,7 +285,6 @@ button.opt {
   .desktop .nest {
     margin: 0 auto;
     display: table;
-    background-color: rgba(255, 255, 255, 0.5);
     border: 1.5px dashed blue;
     border-radius: 10%;
     margin-top: 5px; }
@@ -293,8 +295,17 @@ button.opt {
     font-family: "Arial", sans-serif;
     font-size: 14px; }
 
+#aboutme .wrappa-da-rappa {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.5); }
 #aboutme .app-content {
-  overflow-y: scroll; }
+  display: block;
+  height: 100%;
+  padding-top: 50px; }
   #aboutme .app-content p {
     font-size: 24px;
     line-height: 1.17em;
@@ -323,14 +334,12 @@ button.opt {
     width: 100%; }
 
 .app-content {
-  overflow: hidden;
-  height: calc(100% - 54px);
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.9); }
+  height: 100%;
+  width: 100%; }
 
-.windows .app#solitare .app-content {
+.windows #solitare .app-content {
   background: rgba(0, 255, 128, 0.9); }
-.windows .app#skills .app-content {
+.windows #skills .app-content {
   background: rgba(35, 31, 32, 0.9); }
 
 .fade-enter-active, .fade-leave-active {
