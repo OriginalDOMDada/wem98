@@ -311,6 +311,9 @@ button.opt {
     line-height: 1.17em;
     font-weight: bold;
     padding: 25px; }
+    #aboutme .app-content p a {
+      text-decoration: none;
+      color: #0000ff !important; }
 
 #eightball .app-content .eightballContainer {
   padding-top: 20px; }
