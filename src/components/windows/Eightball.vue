@@ -1,19 +1,55 @@
 <template>
+<div style="height: 100vw; width: 100vw; position: absolute;" v-bind:class="{windowOpen :appData.applications.eightball.openApp}">
+<transition-group name="fade"  tag="div" class="windows">
+<vue-draggable-resizable :h="400" :w="400" v-if="appData.applications.eightball.openApp" v-bind:name="appData.applications.eightball.text" v-bind:open="appData.applications.eightball.openApp" v-bind:key="1" id="eightball" class="box-md app">
+<div class="big-rap">
+<div class="box-header">
+    <div class="title-box">
+      <div class="subtitle fancy">
+      <span><h2>{{appData.applications.eightball.text}}</h2></span>
+      </div>
+      <div class="button-section">
+        <button v-on:click="appData.applications.eightball.openApp = false" class="opt red" type="button" name="expand"></button>
+        <button class="opt green" type="button" name="close"></button>
+      </div>
+    </div>
+  </div>
+    <div class="wrappa-da-rappa">
+        <div class="app-content" name="eightball">
+        <div class="magic-8-ball">
+          <div class="da-blue">
+            <div class="magic-triangle">
+              <p class="da-answer">{{answer}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="button-wrapper">
+          <p>{{answer}}</p>
+          <button id="answerButton" v-on:click="answerMe">Try Me</button>
+        </div>
+        </div>
+      </div>
+  </div>
+</vue-draggable-resizable>
+</transition-group>
+</div>
 </template>
 
 <script>
-  import appData from '../../appData.json'
-  export default {
-    name: 'Eightball',
-    data () {
-      return {
-        appData
-      }
-    },
-    methods: {
-      changeSize () {
-        this.width = Math.round(Math.random() * 400) + 100
-      }
+import appData from '../../appData.json'
+
+export default {
+  data: function () {
+    return {
+      appData,
+      answer: '',
+      answers: ['Maybe.', 'Certainly not.', 'I hope so.', 'Not in your wildest dreams.']
+    }
+  },
+  methods: {
+    answerMe: function () {
+      this.answer = this.answers[Math.floor(Math.random() * this.answers.length)]
     }
   }
+}
 </script>

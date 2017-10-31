@@ -1,5 +1,5 @@
 <template>
-<div style="height: 100vw; width: 100vw; position: relative;">
+<div style="height: 100vw; width: 100vw; position: absolute;" v-bind:class="{windowOpen :appData.applications.aboutme.openApp}">
 <transition-group name="fade"  tag="div" class="windows">
 <vue-draggable-resizable :h="400" :w="400" v-if="appData.applications.aboutme.openApp" v-bind:name="appData.applications.aboutme.text" v-bind:open="appData.applications.aboutme.openApp" v-bind:key="1" id="aboutme" class="box-md app">
 <div class="big-rap">
@@ -26,10 +26,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import VueDraggableResizable from 'vue-draggable-resizable'
 import appData from '../../appData.json'
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
 
 export default {
   data: function () {

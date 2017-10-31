@@ -67,4 +67,12 @@
         }
       }
     }
+    function doDate () {
+      var str = ''
+      var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      var now = new Date()
+      str += days[now.getDay()] + ' ' + now.getHours() + ':' + now.getMinutes()
+      document.getElementById('todaysDate').innerHTML = str
+    }
+    setInterval(doDate, 1000)
 </script>

@@ -80,6 +80,10 @@ body {
   -webkit-animation: slide 15s linear infinite;
   -moz-animation: slide 15s linear infinite;
   -o-animation: slide 15s linear infinite; }
+  .panel > .windows {
+    z-index: 101; }
+  .panel .windowOpen {
+    z-index: 200; }
 
 .st0 {
   fill: #FFFFFF; }
@@ -295,36 +299,94 @@ button.opt {
     font-family: "Arial", sans-serif;
     font-size: 14px; }
 
-#aboutme .wrappa-da-rappa {
+.wrappa-da-rappa {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+#aboutme .wrappa-da-rappa, #eightball .wrappa-da-rappa {
   display: block;
   width: 100%;
   height: 100%;
   position: absolute;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.5); }
-#aboutme .app-content {
+#aboutme .app-content, #eightball .app-content {
   display: block;
   height: 100%;
   padding-top: 50px; }
-  #aboutme .app-content p {
+  #aboutme .app-content p, #eightball .app-content p {
     font-size: 24px;
     line-height: 1.17em;
     font-weight: bold;
     padding: 25px; }
-    #aboutme .app-content p a {
+    #aboutme .app-content p a, #eightball .app-content p a {
       text-decoration: none;
       color: #0000ff !important; }
 
-#eightball .app-content .eightballContainer {
-  padding-top: 20px; }
-  #eightball .app-content .eightballContainer p {
-    text-align: center;
-    font-weight: bold; }
-#eightball .app-content img {
-  width: 75%;
-  height: auto;
-  margin: 0 auto;
-  display: block; }
+#eightball .app-content {
+  position: relative;
+  width: 100%; }
+  #eightball .app-content .button-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 15%; }
+    #eightball .app-content .button-wrapper p {
+      color: #FFFF00;
+      font-size: 26px; }
+  #eightball .app-content #answerButton {
+    z-index: 10px;
+    margin: 0 auto;
+    width: 100px;
+    height: 50px;
+    display: block;
+    background-color: transparent;
+    border: 4px solid #00FF80;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #00FF80;
+    outline: none; }
+    #eightball .app-content #answerButton:hover {
+      color: #0000ff;
+      border: 4px solid #0000ff; }
+  #eightball .app-content .magic-8-ball {
+    height: 250px;
+    width: 250px;
+    background-color: black;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 25px; }
+    #eightball .app-content .magic-8-ball .da-blue {
+      height: 100px;
+      width: 100px;
+      background-color: #0000ff;
+      border-radius: 50%;
+      position: absolute;
+      top: 70px;
+      left: 70px;
+      border: 5px solid #5D5D5D; }
+      #eightball .app-content .magic-8-ball .da-blue .magic-triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 60px 35px 0 35px;
+        border-color: black transparent transparent transparent;
+        margin: 0 auto;
+        margin-top: 25px;
+        position: relative; }
+        #eightball .app-content .magic-8-ball .da-blue .magic-triangle p.da-answer {
+          color: white;
+          display: block;
+          font-size: 5px;
+          font-family: Arial;
+          padding: 0;
+          position: absolute;
+          top: -50px;
+          left: -10px;
+          text-align: center;
+          width: 20px; }
 
 #video .app-content > div {
   display: table;
