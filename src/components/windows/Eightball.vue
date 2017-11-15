@@ -16,7 +16,7 @@
   </div>
     <div class="wrappa-da-rappa">
         <div class="app-content" name="eightball">
-        <div class="magic-8-ball">
+        <div class="magic-8-ball" id="magic-move">
           <div class="da-blue">
             <div class="magic-triangle">
               <p class="da-answer">{{answer}}</p>
@@ -25,7 +25,9 @@
         </div>
         <div class="button-wrapper">
           <p>{{answer}}</p>
+          <div class="prebee">
           <button id="answerButton" v-on:click="answerMe">Try Me</button>
+          </div>
         </div>
         </div>
       </div>
@@ -49,6 +51,15 @@ export default {
   methods: {
     answerMe: function () {
       this.answer = this.answers[Math.floor(Math.random() * this.answers.length)]
+      var ball = document.getElementById('magic-move')
+      if (ball.classList.contains('answerShake')) {
+        ball.classList.remove('answerShake')
+      }
+      ball.classList.add('answerShake')
+      setTimeout(answerReveal, 1000)
+      function answerReveal () {
+        ball.classList.remove('answerShake')
+      }
     }
   }
 }

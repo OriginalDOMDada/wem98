@@ -1,7 +1,7 @@
 <template>
 <div style="height: 100vw; width: 100vw; position: absolute;" v-bind:class="{windowOpen :appData.applications.aboutme.openApp}">
-<transition-group name="fade"  tag="div" class="windows">
-<vue-draggable-resizable :h="400" :w="400" v-if="appData.applications.aboutme.openApp" v-bind:name="appData.applications.aboutme.text" v-bind:open="appData.applications.aboutme.openApp" v-bind:key="1" id="aboutme" class="box-md app">
+<transition-group name="fade" tag="div" class="windows">
+<vue-draggable-resizable :z="300" :parent="true" :maximize="true" :resizing="true" :h="400" :w="400" :minh="400" :minw="400" v-if="appData.applications.aboutme.openApp" v-bind:name="appData.applications.aboutme.text" v-bind:open="appData.applications.aboutme.openApp" v-bind:key="1" id="aboutme" class="box-md app">
 <div class="big-rap">
 <div class="box-header">
     <div class="title-box">
@@ -10,7 +10,7 @@
       </div>
       <div class="button-section">
         <button v-on:click="appData.applications.aboutme.openApp = false" class="opt red" type="button" name="expand"></button>
-        <button class="opt green" type="button" name="close"></button>
+        <button class="opt green" type="button" name="fullSize" v-on:click="fullSize"></button>
       </div>
     </div>
   </div>
@@ -35,6 +35,13 @@ export default {
     }
   },
   methods: {
+    fullSize: function () {
+      var doubleClickEvent = document.createEvent('MouseEvents')
+      doubleClickEvent.initEvent('dblclick', true, true)
+      for (var i = 0; i < 900; i++) {
+        this.$el.querySelector('#aboutme').dispatchEvent(doubleClickEvent)
+      }
+    },
     mannie: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/keef.gif')})`

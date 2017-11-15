@@ -5,63 +5,81 @@
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 0,
+      "y": 0
     },
     "eightball": {
       "text": "Maybe...",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 0,
+      "y": 117
     },
     "solitare": {
       "text": "Solitare",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 0,
+      "y": 234
     },
     "skills": {
       "text": "Skills",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 0,
+      "y": 351
     },
     "resume": {
       "text": "Resume",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 0,
+      "y": 468
     },
     "email": {
       "text": "E-Mail",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 100,
+      "y": 0
     },
     "threedee": {
       "text": "3-D",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 100,
+      "y": 117
     },
     "video": {
       "text": "Video",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 100,
+      "y": 351
     },
     "music": {
       "text": "Music",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
-      "content": ""
+      "content": "",
+      "x": 100,
+      "y": 234
     }
   }
 }

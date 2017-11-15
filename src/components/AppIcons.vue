@@ -1,13 +1,13 @@
 <template>
    <div class="my-applications">
-      <div class="application" v-for="(app, name) in appData.applications" v-draggable v-bind:id="name">
-        <div class="desktop" @dblclick ="app.openApp = true">
+      <vue-draggable-resizable :resizable="false" :w="108" :h="126" :z="200" class="application" v-for="(app, name) in appData.applications" :x="app.x" :y="app.y" v-bind:id="name" :key="app.id" :parent="true" :grid="[25,25]">
+        <div tabindex="0" class="desktop" @dblclick ="app.openApp = true" >
           <img v-for="(icon, iconName) in icons" v-if="iconName === name" v-bind:src="icon.svg" v-bind:class="app.classname">
           <div class="nest">
             <p>{{app.text}}</p>
           </div>
         </div>
-      </div>
+      </vue-draggable-resizable>
    </div>
 </template>
 
@@ -46,34 +46,6 @@
           music: {
             svg: require('../assets/svg/icons-09.svg')
           }
-        }
-      }
-    },
-    directives: {
-      draggable: {
-        bind: function (el) {
-          el.style.position = 'absolute'
-          var startX, startY, initialMouseX, initialMouseY
-          function mousemove (e) {
-            var dx = e.clientX - initialMouseX
-            var dy = e.clientY - initialMouseY
-            el.style.top = startY + dy + 'px'
-            el.style.left = startX + dx + 'px'
-            return false
-          }
-          function mouseup () {
-            document.removeEventListener('mousemove', mousemove)
-            document.removeEventListener('mouseup', mouseup)
-          }
-          el.addEventListener('mousedown', function (e) {
-            startX = el.offsetLeft
-            startY = el.offsetTop
-            initialMouseX = e.clientX
-            initialMouseY = e.clientY
-            document.addEventListener('mousemove', mousemove)
-            document.addEventListener('mouseup', mouseup)
-            return false
-          })
         }
       }
     }
