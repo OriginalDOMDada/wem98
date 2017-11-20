@@ -16,7 +16,15 @@
     </div>
       <div class="wrappa-da-rappa">
           <div class="app-content" name="music">
-            <div id="putTheWidgetHere"></div>
+            <div id="SC-playa">
+              <div class="button-wrapper">
+                <div class="prebee">
+                  <p>{{ song }}</p>
+                  <button class="play" v-on:click="playSound">Play</button>
+                  <button class="pause" v-on:click="pauseSound">Pause</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
     </div>
@@ -34,21 +42,33 @@
     data () {
       return {
         appData,
-        SC,
-        player: ''
+        is_playing: false,
+        player: '',
+        song: {
+          title: [],
+          artist: [],
+          id: [],
+          duration: []
+        },
+        index: 0,
+        currentSong: 0
       }
     },
     mounted () {
       SC.initialize({
         client_id: 'a985b2097bc3b0192d24975686095d1f'
       })
-      SC.get('/users/11960914/favorites').then(function (favorites) {
-        favorites.forEach(function (track) {
-          console.log(track.id)
+      SC.get('/playlists/376667462').then(function (playlist) {
+        playlist.forEach(function (track) {
+          console.log(track.title)
+          this.song.id[this.index] = track.id
+          console.log(track.title)
+          this.song.title[this.index] = track.title
+          this.song.artist[this.index] = track.user.username
+          this.song.duration[this.index] = track.duration
+          console.log(track.duration)
+          this.index++
         })
-      })
-      SC.stream('/users/11960914/favorites').then(function (player) {
-        player.play()
       })
     },
     methods: {
@@ -58,6 +78,16 @@
         for (var i = 0; i < 900; i++) {
           this.$el.querySelector('#aboutme').dispatchEvent(doubleClickEvent)
         }
+      },
+      playSound: function () {
+        this.player.then(function (player) {
+          player.play()
+        })
+      },
+      pauseSound: function () {
+        this.player.then(function (player) {
+          player.pause()
+        })
       }
     }
   }

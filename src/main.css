@@ -2,9 +2,44 @@
   margin: 0;
   padding: 0; }
 
-body {
-  overflow-x: hidden; }
+::-moz-selection {
+  background: #0000ff;
+  color: white; }
 
+::selection {
+  background: #0000ff;
+  color: white; }
+
+body {
+  overflow-x: hidden;
+  cursor: url("http://localhost:8080/static/colorwave-1.svg"), auto !important; }
+
+.draggable {
+  cursor: url("http://localhost:8080/static/colorwave-1.svg"), auto !important; }
+
+button {
+  cursor: url("http://localhost:8080/static/finger.svg"), auto !important; }
+
+.day {
+  cursor: url("http://localhost:8080/static/day.svg"), auto !important; }
+
+.night {
+  cursor: url("http://localhost:8080/static/night.svg"), auto !important; }
+
+a {
+  animation: animate .25s infinite ease-in-out; }
+
+@keyframes animate {
+  0% {
+    cursor: url("http://localhost:8080/static/colorwave-1.svg"), auto; }
+  25% {
+    cursor: url("http://localhost:8080/static/colorwave-2.svg"), auto; }
+  50% {
+    cursor: url("http://localhost:8080/static/colorwave-3.svg"), auto; }
+  75% {
+    cursor: url("http://localhost:8080/static/colorwave-4.svg"), auto; }
+  100% {
+    cursor: url("http://localhost:8080/static/colorwave-5.svg"), auto; } }
 /* Let's get this party started */
 ::-webkit-scrollbar {
   width: 30px; }
@@ -34,6 +69,7 @@ body {
   width: 100%; }
 
 .header {
+  cursor: url(../static/img/thumb.jpg), auto;
   width: 100%;
   background-color: black;
   height: auto;
@@ -67,6 +103,22 @@ body {
   padding: 0;
   padding-top: 50px;
   background-color: white;
+  background: #0000ff;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #ff0080 0%, #0000ff 50%, #ff0080 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ff0080), color-stop(50%, #0000ff), color-stop(100%, #ff0080));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #ff0080 0%, #0000ff 50%, #ff0080 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #ff0080 0%, #0000ff 50%, #ff0080 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #ff0080 0%, #0000ff 50%, #ff0080 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #ff0080 0%, #0000ff 50%, #ff0080 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0080', endColorstr='#ff0080',GradientType=1 );
+  /* IE6-9 */
   -webkit-animation: slide 15s linear infinite;
   -moz-animation: slide 15s linear infinite;
   -o-animation: slide 15s linear infinite; }
@@ -451,6 +503,42 @@ button.opt {
         left: 0px; }
   .windows #skills .app-content {
     background: rgba(35, 31, 32, 0.9); }
+  .windows #music .app-content .button-wrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 100%; }
+  .windows #music .app-content .prebee {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    z-index: 100;
+    margin: 0 auto; }
+    .windows #music .app-content .prebee:before {
+      content: "";
+      width: 142px;
+      height: 42px;
+      background-color: #0000ff;
+      border: 4px solid #0000ff;
+      position: absolute;
+      z-index: -99;
+      bottom: -4px;
+      left: 4px; }
+  .windows #music .app-content .play, .windows #music .app-content .pause {
+    height: 50px;
+    display: inline-block;
+    background-color: white;
+    border: 4px solid #0000ff;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #0000ff;
+    outline: none; }
+    .windows #music .app-content .play:hover, .windows #music .app-content .pause:hover {
+      background-color: #0000ff;
+      border: 4px solid white;
+      color: white;
+      bottom: 0px;
+      left: 0px; }
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s; }

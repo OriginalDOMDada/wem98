@@ -79,7 +79,8 @@
       "openApp": false,
       "content": "",
       "x": 100,
-      "y": 234
+      "y": 234,
+      "streaming": false 
     }
   }
 }

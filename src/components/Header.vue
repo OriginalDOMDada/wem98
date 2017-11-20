@@ -71,8 +71,25 @@
       var str = ''
       var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
       var now = new Date()
-      str += days[now.getDay()] + ' ' + now.getHours() + ':' + now.getMinutes()
+      var hours = now.getHours()
+      var minutes = now.getMinutes()
+      var ampm = hours >= 12 ? 'PM' : 'AM'
+      hours = hours % 12
+      console.log(hours)
+      if (hours === 0) {
+        hours = 12
+      }
+      minutes = minutes < 10 ? '0' + minutes : minutes
+      str += days[now.getDay()] + ' ' + hours + ':' + minutes + ' ' + ampm
       document.getElementById('todaysDate').innerHTML = str
+      if (ampm === 'PM') {
+        document.getElementById('todaysDate').classList.add('night')
+        document.getElementById('todaysDate').classList.remove('day')
+      }
+      if (ampm === 'AM') {
+        document.getElementById('todaysDate').classList.add('day')
+        document.getElementById('todaysDate').classList.remove('night')
+      }
     }
     setInterval(doDate, 1000)
 </script>
