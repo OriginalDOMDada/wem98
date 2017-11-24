@@ -1,7 +1,7 @@
 <template>
 <div style="height: 100vw; width: 100vw; position: absolute;" v-bind:class="{windowOpen :appData.applications.solitare.openApp}">
 <transition-group name="fade"  tag="div" class="windows">
-<vue-draggable-resizable :h="400" :w="400" v-if="appData.applications.solitare.openApp" v-bind:name="appData.applications.solitare.text" v-bind:open="appData.applications.solitare.openApp" v-bind:key="1" id="solitare" class="box-md app" v-on:resizing="onResize">
+<vue-draggable-resizable :x.sync="x" :y.sync="y" :active="true" @activated="high" :h="400" :w="400" :z.sync="appData.applications.solitare.z" v-if="appData.applications.solitare.openApp" v-bind:name="appData.applications.solitare.text" v-bind:open="appData.applications.solitare.openApp" v-bind:key="1" id="solitare" class="box-md app" v-on:resizing="onResize">
 <div class="big-rap">
 <div class="box-header">
     <div class="title-box">
@@ -38,8 +38,28 @@
     name: 'Solitare',
     data () {
       return {
-        appData
+        appData,
+        x: 0,
+        y: 0
       }
+    },
+    beforeUpdate () {
+      var initalWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+      var initalHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      console.log(initalHeight)
+      var initalX = (initalWidth / 2) - 200
+      var initalY = 50
+      var activeApps = document.getElementsByClassName('app')
+      var appArray = []
+      for (var i = 0; i < activeApps.length; i++) {
+        var eachActive = activeApps[i]
+        appArray.push(eachActive)
+      }
+      initalY = 50 + (50 * appArray.length)
+      initalX = initalX + (50 * appArray.length)
+      console.log(appArray)
+      this.x = initalX
+      this.y = initalY
     },
     methods: {
       throwsum: function (event) {
@@ -79,6 +99,20 @@
             window.dispatchEvent(resizeEvent)
           }
         }
+      },
+      high: function () {
+        var activeApps = document.getElementsByClassName('app')
+        var initalHi = 200
+        var zIndexs = []
+        for (var i = 0; i < activeApps.length; i++) {
+          var zindex = parseInt(activeApps[i].style.zIndex)
+          zIndexs.push(zindex)
+        }
+        var largest = Math.max.apply(Math, zIndexs)
+        if (initalHi <= largest) {
+          appData.applications.solitare.z = largest + 1
+        }
+        console.log(this.$el)
       }
     }
   }

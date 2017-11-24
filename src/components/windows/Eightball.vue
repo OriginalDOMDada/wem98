@@ -1,7 +1,7 @@
 <template>
 <div style="height: 100vw; width: 100vw; position: absolute;" v-bind:class="{windowOpen :appData.applications.eightball.openApp}">
 <transition-group name="fade"  tag="div" class="windows">
-<vue-draggable-resizable :h="400" :w="400" v-if="appData.applications.eightball.openApp" v-bind:name="appData.applications.eightball.text" v-bind:open="appData.applications.eightball.openApp" v-bind:key="1" id="eightball" class="box-md app">
+<vue-draggable-resizable :x.sync="x" :y.sync="y" :active="true" @activated="high" :z.sync="appData.applications.eightball.z" :h="400" :w="400" v-if="appData.applications.eightball.openApp" v-bind:name="appData.applications.eightball.text" v-bind:open="appData.applications.eightball.openApp" v-bind:key="1" id="eightball" class="box-md app">
 <div class="big-rap">
 <div class="box-header">
     <div class="title-box">
@@ -9,8 +9,8 @@
       <span><h2>{{appData.applications.eightball.text}}</h2></span>
       </div>
       <div class="button-section">
-        <button v-on:click="appData.applications.eightball.openApp = false" class="opt red" type="button" name="expand"></button>
-        <button class="opt green" type="button" name="close"></button>
+        <button v-on:click="appData.applications.eightball.openApp = false" class="opt red" type="button" name="expand"><span>+</span></button>
+        <button class="opt green" type="button" name="close"><span>&#8853;</span></button>
       </div>
     </div>
   </div>
@@ -34,6 +34,7 @@
   </div>
 </vue-draggable-resizable>
 </transition-group>
+<p class="mannie" style="position: absolute;">{{zfirst}}</p>
 </div>
 </template>
 
@@ -45,8 +46,28 @@ export default {
     return {
       appData,
       answer: '',
+      x: 0,
+      y: 0,
       answers: ['Maybe.', 'Certainly not.', 'I hope so.', 'Not in your wildest dreams.']
     }
+  },
+  beforeUpdate () {
+    var initalWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+    var initalHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    console.log(initalHeight)
+    var initalX = (initalWidth / 2) - 200
+    var initalY = 50
+    var activeApps = document.getElementsByClassName('app')
+    var appArray = []
+    for (var i = 0; i < activeApps.length; i++) {
+      var eachActive = activeApps[i]
+      appArray.push(eachActive)
+    }
+    initalY = 50 + (50 * appArray.length)
+    initalX = initalX + (50 * appArray.length)
+    console.log(appArray)
+    this.x = initalX
+    this.y = initalY
   },
   methods: {
     answerMe: function () {
@@ -60,6 +81,20 @@ export default {
       function answerReveal () {
         ball.classList.remove('answerShake')
       }
+    },
+    high: function () {
+      var activeApps = document.getElementsByClassName('app')
+      var initalHi = 200
+      var zIndexs = []
+      for (var i = 0; i < activeApps.length; i++) {
+        var zindex = parseInt(activeApps[i].style.zIndex)
+        zIndexs.push(zindex)
+      }
+      var largest = Math.max.apply(Math, zIndexs)
+      if (initalHi <= largest) {
+        appData.applications.eightball.z = largest + 1
+      }
+      console.log(this.$el)
     }
   }
 }

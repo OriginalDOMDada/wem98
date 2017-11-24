@@ -7,16 +7,21 @@
       "openApp": false,
       "content": "",
       "x": 0,
-      "y": 0
+      "y": 0,
+      "z": 200,
+      "h": 400,
+      "w": 400
     },
     "eightball": {
       "text": "Maybe...",
       "classname": "desktop-icon",
       "activeState": false,
       "openApp": false,
+      "active": true,
       "content": "",
       "x": 0,
-      "y": 117
+      "y": 117,
+      "z": 200
     },
     "solitare": {
       "text": "Solitare",
@@ -25,7 +30,8 @@
       "openApp": false,
       "content": "",
       "x": 0,
-      "y": 234
+      "y": 234,
+      "z": 200
     },
     "skills": {
       "text": "Skills",
@@ -80,7 +86,8 @@
       "content": "",
       "x": 100,
       "y": 234,
-      "streaming": false 
+      "z": 200,
+      "streaming": false
     }
   }
 }

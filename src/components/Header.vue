@@ -75,7 +75,6 @@
       var minutes = now.getMinutes()
       var ampm = hours >= 12 ? 'PM' : 'AM'
       hours = hours % 12
-      console.log(hours)
       if (hours === 0) {
         hours = 12
       }
@@ -93,3 +92,50 @@
     }
     setInterval(doDate, 1000)
 </script>
+
+<style>
+  #aboutsvg:hover path[pid="3"] {
+    animation: question 1.5s linear 1;
+    transform-origin: 50% 50%;
+  }
+  #aboutsvg:hover {
+    animation: float 1.5s linear 1;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes question {
+    0% {
+      transform: scale(1), rotate(0deg);
+    }
+    25% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: scale(1.1), rotate(0deg);
+    }
+    75% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0px,0px);
+    }
+    25% {
+      transform: translate(0px,5px);
+    }
+    50% {
+      transform: translate(0px,0px);
+    }
+    75% {
+      transform: translate(0px,5px);
+    }
+    100% {
+      transform: translate(0px,0px);
+    }
+  }
+</style>
