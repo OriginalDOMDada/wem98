@@ -1,14 +1,17 @@
 <template>
 <div>
   <div class='header'>
-    <svgicon class="top-logo" name="top_logo" height="30" width="30" :original="true"></svgicon>
     <div class='dropdown'>
+      <svgicon class="top-logo" name="top_logo" height="30" width="30" :original="true"></svgicon>
       <button v-on:click='expand' class='dropbtn' id='window'>William Mannie</button>
       <div id='myDropdown' class='dropdown-content' style="display:none;">
         <a href='#'>Link 1</a>
         <a href='#'>Link 2</a>
         <a href='#'>Link 3</a>
       </div>
+    </div>
+    <div class="marquee3k" data-speed="0.25" data-pausable="bool">
+      <p>Some marquee content</p>
     </div>
     <div id='todaysDate'></div>
   </div>
@@ -46,12 +49,16 @@
 
 <script>
     import appData from '../appData.json'
+    import Marquee3k from 'marquee3000'
     export default {
       data () {
         return {
           appData,
           topLogo: require('../assets/svg/top_logo.svg')
         }
+      },
+      mounted () {
+        Marquee3k.init()
       },
       methods: {
         expand (event) {
@@ -96,6 +103,18 @@
   .top-logo:hover g {
     animation: topspin 1.5s ease-in-out 1 alternate .25s;
     transform-origin: 50% 50%;
+  }
+  .marquee3k {
+    color: white;
+    font-family: Arial;
+    display: inline-block;
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    font-size: 14px;
+    right: 0;
   }
 
   @keyframes topspin {

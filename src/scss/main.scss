@@ -109,6 +109,7 @@ a {
   -moz-background-clip: padding-box;
   background-clip: padding-box;
   display: inline-block;
+  height: 52px;
   .top-logo {
     height: 30px;
     padding: 10px 10px 10px 30px;
@@ -116,11 +117,14 @@ a {
   }
   #todaysDate {
     color: white;
-    float: right;
     font-family: "Arial", sans-serif;
     font-size: 16px;
     padding: 17px 30px;
     font-weight: bold;
+    top: 0;
+    right: 0;
+    background: black;
+    position: absolute;
   }
 }
 
@@ -169,7 +173,7 @@ a {
   }
   &:after {
     content: "";
-    background-image: url("http://localhost:8080/static/share.gif");
+    // background-image: url("http://localhost:8080/static/share.gif");
     background-color: #00ff80;
     opacity: .7;
     background-blend-mode: multiply;
@@ -462,14 +466,14 @@ button.opt {
 }
 
 .computer-bounce {
-  display: none;
-  // width: 100px;
-  // height: 100px;
-  // position: absolute;
-  // -webkit-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
-  // -moz-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
-  // -o-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
-  // animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+  // display: none;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  -webkit-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+  -moz-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+  -o-animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
+  animation: moveX 6.1s linear 0s infinite alternate, moveY 6.8s linear 0s infinite alternate;
 }
 
 @-webkit-keyframes moveX {
@@ -978,7 +982,7 @@ button.opt {
     font-family: Arial;
     font-weight: bold;
     font-size: 16px;
-    padding: 17px 15px;
+    padding: 17px 20px 17px 15px;
 }
 .dropdown.one .dropbtn {
   font-weight: bold;
@@ -991,9 +995,22 @@ button.opt {
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
+  position: absolute;
   display: inline-block;
   float: left;
+  background-color: black;
+  z-index: 500;
+  &:after {
+    content: "";
+    width: 10px;
+    height: 52px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    // color: black;
+    display: inline-block;
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+  }
 }
 
 /* Dropdown Content (Hidden by Default) */
