@@ -9,14 +9,14 @@
       <span><h2>{{appData.applications.aboutme.text}}</h2></span>
       </div>
       <div class="button-section">
-        <button v-on:click="appData.applications.aboutme.openApp = false" class="opt red" type="button" name="expand"></button>
-        <button class="opt green" type="button" name="fullSize" v-on:click="fullSize" @mouseover="parentOn" @mouseleave="parentOff"></button>
+        <button v-on:click="appData.applications.aboutme.openApp = false" class="opt red" type="button" name="expand"><svgicon v-on:click="appData.applications.aboutme.openApp = false" name="close" height="6" width="6" :original="true"></svgicon></button>
+        <button class="opt green" type="button" name="fullSize" v-on:click="fullSize" @mouseover="parentOn" @mouseleave="parentOff"><svgicon name="open" height="6" width="6" :original="true" v-on:click="fullSize"></svgicon></button>
       </div>
     </div>
   </div>
     <div class="wrappa-da-rappa">
         <div class="app-content" name="aboutme">
-          <p>Hello,<br> My name is <a @mouseover='mannie' @mouseleave='before' href='#'>William Mannie</a>, I am a magical <a @mouseover='unicorn' @mouseleave='before' href="#">unicorn</a> that likes to <a @mouseover='create' @mouseleave='before' href="#">create</a> really <a @mouseover='cool' @mouseleave='before' href="#">cool</a> <a @mouseover='shit' @mouseleave='before' href="#">shit</a>. I currently <a @mouseover='blaze' @mouseleave='before' href="#">blaze</a> the streets of <a @mouseover='dc' @mouseleave='before' href="#">Washinton, D.C.</a>, where by day I am <a @mouseover='webdev' @mouseleave='before' href="#">web developer</a> at Adfro. To maintain my <a  @mouseover='survival' @mouseleave='before' href="#">survial</a> i eat.. <a @mouseover='alot' @mouseleave='before' href="#">a lot</a>. But in my spare time, i enjoy riding my <a @mouseover='bike' @mouseleave='before' href="#">bike</a> and <a  @mouseover='hunting' @mouseleave='before' href="#">hunting</a> the <a @mouseover='internet' @mouseleave='before' href="#">internet</a> for <a @mouseover='awesomeness' @mouseleave='before' href="#">awesomeness</a>. My areas of expertiese lie within fron-end design/devlopment and illustrating. Check out my site and see what I've been up to <a @mouseover='lately' @mouseleave='before' href="#">lately</a>.</p>
+          <p>Hello,<br> My name is <a @mouseover='mannie' @mouseleave='before' href='#'>William Mannie</a>, I am a magical <a @mouseover='unicorn' @mouseleave='before' href="#">unicorn</a> that likes to <a @mouseover='create' @mouseleave='before' href="#">create</a> really <a @mouseover='cool' @mouseleave='before' href="#">cool</a> ass <a @mouseover='shit' @mouseleave='before' href="#">shit</a>. I currently <a @mouseover='blaze' @mouseleave='before' href="#">blaze</a> the streets of <a @mouseover='dc' @mouseleave='before' href="#">Washinton, D.C.</a>, where by day I am <a @mouseover='webdev' @mouseleave='before' href="#">web developer</a> at Adfro. To maintain my <a  @mouseover='survival' @mouseleave='before' href="#">survial</a> i eat... <a @mouseover='alot' @mouseleave='before' href="#">a lot</a>. But in my spare <a @mouseover='time' @mouseleave='before' href="#">time</a>, i enjoy riding my <a @mouseover='bike' @mouseleave='before' href="#">bike</a> and <a  @mouseover='hunting' @mouseleave='before' href="#">hunting</a> the <a @mouseover='internet' @mouseleave='before' href="#">internet</a> for <a @mouseover='awesomeness' @mouseleave='before' href="#">awesomeness</a>. My areas of <a @mouseover='expert' @mouseleave='before' href="#">expertiese</a> lie within Front-End Development, User Experience <a @mouseover='design' @mouseleave='before' href="#">Design</a>, and <a @mouseover='draw' @mouseleave='before' href="#">Illustrating</a>. Check out my <a @mouseover='domain' @mouseleave='before' href='#'>domain</a> and see what I've been up to <a @mouseover='lately' @mouseleave='before' href="#">lately</a>.</p>
         </div>
       </div>
   </div>
@@ -27,6 +27,7 @@
 
 <script>
 import appData from '../../appData.json'
+import '../../compiled-icons'
 
 export default {
   data: function () {
@@ -93,7 +94,7 @@ export default {
     mannie: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/keef.gif')})`
-      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'cover'
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '100% 100%'
     },
     unicorn: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
@@ -123,7 +124,7 @@ export default {
     dc: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/dc.gif')})`
-      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'contain'
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '100% 100%'
     },
     webdev: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
@@ -143,7 +144,7 @@ export default {
     alot: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/alot.gif')})`
-      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'inital'
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'cover'
     },
     hunting: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
@@ -153,17 +154,42 @@ export default {
     internet: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/internet.gif')})`
-      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'cover'
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '50% auto'
     },
     awesomeness: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
-      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/awesomeness.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/coolio.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'inital'
+    },
+    time: function () {
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/time.gif')})`
       document.getElementsByClassName('panel')['0'].style.backgroundSize = 'inital'
     },
     lately: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
       document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/lately.gif')})`
       document.getElementsByClassName('panel')['0'].style.backgroundSize = 'cover'
+    },
+    expert: function () {
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/cut-it-out.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'inital'
+    },
+    design: function () {
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/design.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = 'cover'
+    },
+    draw: function () {
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/draw.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '50% auto'
+    },
+    domain: function () {
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/domain.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '100% 100%'
     },
     before: function () {
       document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'slide 15s linear infinite'

@@ -30,11 +30,13 @@
           </div>
         </div>
         </div>
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
       </div>
   </div>
 </vue-draggable-resizable>
 </transition-group>
-<p class="mannie" style="position: absolute;">{{zfirst}}</p>
 </div>
 </template>
 

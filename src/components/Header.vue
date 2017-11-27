@@ -1,47 +1,46 @@
 <template>
-<div class='header'>
-  <img class='top-logo' v-bind:src='topLogo' alt=''>
-  <div class='dropdown one'>
-    <button v-on:click='expand' class='dropbtn'>William Mannie</button>
-    <div id='myDropdown' class='dropdown-content' style="display:none;">
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
+<div>
+  <div class='header'>
+    <svgicon class="top-logo" name="top_logo" height="30" width="30" :original="true"></svgicon>
+    <div class='dropdown'>
+      <button v-on:click='expand' class='dropbtn' id='window'>William Mannie</button>
+      <div id='myDropdown' class='dropdown-content' style="display:none;">
+        <a href='#'>Link 1</a>
+        <a href='#'>Link 2</a>
+        <a href='#'>Link 3</a>
+      </div>
+    </div>
+    <div id='todaysDate'></div>
+  </div>
+  <div class="social">
+    <div class="twitter">
+      <svgicon height="28" width="28" name="twitter"></svgicon>
+    </div>
+    <div class="dribble">
+      <svgicon height="28" width="28" name="dribble"></svgicon>
+    </div>
+    <div class="instagram">
+      <svgicon height="28" width="28" name="instagram"></svgicon>
+    </div>
+    <div class="facebook">
+      <svgicon height="28" width="28" name="facebook"></svgicon>
+    </div>
+    <div class="github">
+      <svgicon height="28" width="28" name="github"></svgicon>
+    </div>
+    <div class="linkedin">
+      <svgicon height="28" width="28" name="linkedin"></svgicon>
     </div>
   </div>
-  <div class='dropdown'>
-    <button v-on:click='expand' class='dropbtn' id='file'>File</button>
-    <div id='myDropdown' class='dropdown-content' style="display:none;">
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
+  <div class="share">
+    <div class="share-wrapper">
+      <span class="bink-text">Share:</span>
+      <span class="under-blink">send domain to other users.</span>
+      <div class="share-twitter"></div>
+      <div class="share-facebook"></div>
+      <div class="share-text"></div>
     </div>
   </div>
-  <div class='dropdown'>
-    <button v-on:click='expand' class='dropbtn' id='view'>View</button>
-    <div id='myDropdown' class='dropdown-content' style="display:none;">
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
-    </div>
-  </div>
-  <div class='dropdown'>
-    <button v-on:click='expand' class='dropbtn' id='window'>Window</button>
-    <div id='myDropdown' class='dropdown-content' style="display:none;">
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
-    </div>
-  </div>
-  <div class='dropdown'>
-    <button v-on:click='expand' class='dropbtn' id='share'>Share</button>
-    <div id='myDropdown' class='dropdown-content' style="display:none;">
-      <a href='#'>Link 1</a>
-      <a href='#'>Link 2</a>
-      <a href='#'>Link 3</a>
-    </div>
-  </div>
-  <div id='todaysDate'></div>
 </div>
 </template>
 
@@ -94,48 +93,35 @@
 </script>
 
 <style>
-  #aboutsvg:hover path[pid="3"] {
-    animation: question 1.5s linear 1;
-    transform-origin: 50% 50%;
-  }
-  #aboutsvg:hover {
-    animation: float 1.5s linear 1;
+  .top-logo:hover g {
+    animation: topspin 1.5s ease-in-out 1 alternate .25s;
     transform-origin: 50% 50%;
   }
 
-  @keyframes question {
+  @keyframes topspin {
     0% {
-      transform: scale(1), rotate(0deg);
+      transform: rotate(0deg);
     }
-    25% {
-      transform: rotate(10deg);
+    10% {
+      transform: rotate(-90deg);
+    }
+    40% {
+      transform: rotate(185deg);
     }
     50% {
-      transform: scale(1.1), rotate(0deg);
+      transform: rotate(181deg);
     }
-    75% {
-      transform: rotate(-10deg);
+    60% {
+      transform: rotate(180deg);
     }
-    100% {
-      transform: scale(1);
+    80% {
+      transform: rotate(181deg);
     }
-  }
-
-  @keyframes float {
-    0% {
-      transform: translate(0px,0px);
-    }
-    25% {
-      transform: translate(0px,5px);
-    }
-    50% {
-      transform: translate(0px,0px);
-    }
-    75% {
-      transform: translate(0px,5px);
+    90% {
+      transform: rotate(170deg);
     }
     100% {
-      transform: translate(0px,0px);
+      transform: rotate(0deg);
     }
   }
 </style>

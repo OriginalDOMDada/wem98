@@ -16,6 +16,7 @@
   </div>
     <div class="wrappa-da-rappa">
         <div class="app-content viewport" name="solitare">
+          <p id="solitare-message">Screw it, you already won!<br> Just toss the cards!</p>
           <div class="button-wrapper">
             <div class="prebee">
               <button class="throwsum" v-on:click="throwsum">Throw Some</button>
@@ -63,6 +64,8 @@
     },
     methods: {
       throwsum: function (event) {
+        console.log(this.$el)
+        document.getElementById('solitare-message').remove()
         var win = new SolitaireWin({
           viewport: document.querySelector('.viewport'),
           path: 'static/cards/',

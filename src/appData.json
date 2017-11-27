@@ -40,7 +40,8 @@
       "openApp": false,
       "content": "",
       "x": 0,
-      "y": 351
+      "y": 351,
+      "z": 200
     },
     "resume": {
       "text": "Resume",
@@ -49,7 +50,8 @@
       "openApp": false,
       "content": "",
       "x": 0,
-      "y": 468
+      "y": 468,
+      "z": 200
     },
     "email": {
       "text": "E-Mail",
@@ -58,7 +60,8 @@
       "openApp": false,
       "content": "",
       "x": 100,
-      "y": 0
+      "y": 0,
+      "z": 200
     },
     "threedee": {
       "text": "3-D",
@@ -67,7 +70,8 @@
       "openApp": false,
       "content": "",
       "x": 100,
-      "y": 117
+      "y": 117,
+      "z": 200
     },
     "video": {
       "text": "Video",
@@ -76,7 +80,8 @@
       "openApp": false,
       "content": "",
       "x": 100,
-      "y": 351
+      "y": 351,
+      "z": 200
     },
     "music": {
       "text": "Music",
