@@ -9,7 +9,7 @@
       <span><h2>{{appData.applications.eightball.text}}</h2></span>
       </div>
       <div class="button-section">
-        <button v-on:click="appData.applications.eightball.openApp = false" class="opt red" type="button" name="expand"><span>+</span></button>
+        <button v-on:click="explode" class="opt red" type="button" name="expand"><span>+</span></button>
         <button class="opt green" type="button" name="close"><span>&#8853;</span></button>
       </div>
     </div>
@@ -97,6 +97,17 @@ export default {
         appData.applications.eightball.z = largest + 1
       }
       console.log(this.$el)
+    },
+    explode: function () {
+      this.appData.applications.eightball.openApp = false
+      document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+      document.getElementsByClassName('panel')['0'].style.backgroundImage = `url(${require('../../assets/gifs/explode.gif')})`
+      document.getElementsByClassName('panel')['0'].style.backgroundSize = '100% 100%'
+      setTimeout(function () {
+        document.getElementsByClassName('panel')['0'].style.WebkitAnimation = 'inherit'
+        document.getElementsByClassName('panel')['0'].style.backgroundImage = ''
+        document.getElementsByClassName('panel')['0'].style.backgroundSize = ''
+      }, 1000)
     }
   }
 }

@@ -11,6 +11,7 @@ import Email from '@/components/windows/Email'
 import Threedee from '@/components/windows/Threedee'
 import Video from '@/components/windows/Video'
 import Music from '@/components/windows/Music'
+import LoadingScreen from '@/components/LoadingScreen'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 Vue.component('vue-draggable-resizable', VueDraggableResizable)
@@ -23,6 +24,7 @@ export default new Router({
       path: '/',
       name: 'appicons',
       components: {
+        loadingscreen: LoadingScreen,
         header: Header,
         appicons: AppIcons,
         aboutme: Aboutme,

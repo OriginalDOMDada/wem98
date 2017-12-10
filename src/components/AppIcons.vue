@@ -1,6 +1,6 @@
 <template>
    <div class="my-applications">
-      <vue-draggable-resizable :resizable="false" :w="108" :h="126" :z="200" class="application" v-for="(app, name) in appData.applications" :x="app.x" :y="app.y" v-bind:id="name" :key="app.id" :parent="true" :grid="[25,25]">
+      <vue-draggable-resizable :resizable="false" :w="w" :h="h" :z="200" class="application" v-for="(app, name) in appData.applications" :x="app.x" :y="app.y" v-bind:id="name" :key="app.id" :parent="true" :grid="[25,25]">
         <div tabindex="0" class="desktop" @dblclick ="openSesemie" @click="topActive">
           <svgicon v-for="(icon, iconName) in icons" v-if="iconName === name" v-bind:class="app.classname" width="50" height="50" :original="true"  v-bind:id="name" v-bind:name="name" :key="app.id"></svgicon>
           <div class="nest">
@@ -19,33 +19,53 @@
     data () {
       return {
         appData,
+        h: 90,
+        w: 60,
         icons: {
           aboutme: {
-            svg: require('../assets/svg/icons-01.svg')
+            svg: require('../assets/svg/icons-01.svg'),
+            x: 0,
+            y: 0
           },
           eightball: {
-            svg: require('../assets/svg/icons-02.svg')
+            svg: require('../assets/svg/icons-02.svg'),
+            x: 0,
+            y: 117
           },
           solitare: {
-            svg: require('../assets/svg/icons-03.svg')
+            svg: require('../assets/svg/icons-03.svg'),
+            x: 0,
+            y: 234
           },
           skills: {
-            svg: require('../assets/svg/icons-04.svg')
+            svg: require('../assets/svg/icons-04.svg'),
+            x: 0,
+            y: 351
           },
           resume: {
-            svg: require('../assets/svg/icons-05.svg')
+            svg: require('../assets/svg/icons-05.svg'),
+            x: 0,
+            y: 468
           },
           email: {
-            svg: require('../assets/svg/icons-06.svg')
+            svg: require('../assets/svg/icons-06.svg'),
+            x: 100,
+            y: 0
           },
           threedee: {
-            svg: require('../assets/svg/icons-07.svg')
+            svg: require('../assets/svg/icons-07.svg'),
+            x: 100,
+            y: 117
           },
           video: {
-            svg: require('../assets/svg/icons-08.svg')
+            svg: require('../assets/svg/icons-08.svg'),
+            x: 100,
+            y: 351
           },
           music: {
-            svg: require('../assets/svg/icons-09.svg')
+            svg: require('../assets/svg/icons-09.svg'),
+            x: 100,
+            y: 234
           }
         }
       }
@@ -113,8 +133,18 @@
     animation: moveup .7s ease;
   }
 
-  svg#email:hover .globe {
-    animation: globe 1s ease 1;
+  svg#email:hover #globe #worldmove path {
+    animation: globe 2.5s ease-in-out 1 alternate;
+    transform-origin: 50%, 50%;
+  }
+
+  svg#email:hover #globe {
+    animation: globefloat 1s ease-in-out 2 alternate;
+    transform-origin: 50%, 50%;
+}
+
+  svg#email:hover #letter {
+    animation: letter .7s ease 1;
     transform-origin: 50%, 50%;
   }
 
@@ -326,8 +356,49 @@
 
   @keyframes globe {
     0%{
-      transform: translate(0px,-60px);
-      opacity: .1;
+      transform: translate(0px,0px);
+  /*     opacity: .1; */
+    }
+    5% {
+      transform: translate(-40px,0px);
+    }
+    7% {
+      transform: translate(-45px,0px);
+    }
+    55%{
+      transform: translate(350px,0px);
+    }
+    57%{
+      transform: translate(350px,0px);
+    }
+    90%{
+      transform: translate(-5px,0px);
+    }
+    95%{
+      transform: translate(1px,0px);
+    }
+    99%{
+  /*     transform: translate(5px,0px); */
+    }
+    100%{
+      transform: translate(0px,0px);
+    }
+  }
+
+  @keyframes letter {
+     0%{
+      transform: translate(-60px,0px);
+      opacity: 0;
+    }
+    70%{
+      transform: translate(-60px,0px);
+      opacity: 0;
+    }
+    90% {
+      transform: translate(1px,0px);
+    }
+    95% {
+      transform: translate(-2px,0px);
     }
     100%{
       transform: translate(0px,0px);
@@ -335,14 +406,19 @@
     }
   }
 
-  @keyframes letter {
-    0%{
-      transform: translate(-60px,0px);
-      opacity: .1;
-    }
-    100%{
+
+  @keyframes globefloat {
+     0% {
       transform: translate(0px,0px);
-      opacity: 1;
+    }
+    45% {
+      transform: translate(-2px,0px) rotate(-1deg);
+    }
+    50% {
+      transform: translate(3px,3px) rotate(1deg);
+    }
+    100% {
+      transform: translate(0px,0px);
     }
   }
 

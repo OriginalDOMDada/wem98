@@ -3,15 +3,15 @@
   <div class='header'>
     <div class='dropdown'>
       <svgicon class="top-logo" name="top_logo" height="30" width="30" :original="true"></svgicon>
-      <button v-on:click='expand' class='dropbtn' id='window'>William Mannie</button>
+      <button v-on:click='expand' class='dropbtn' id='window'>William <b>Mannie</b></button>
       <div id='myDropdown' class='dropdown-content' style="display:none;">
         <a href='#'>Link 1</a>
         <a href='#'>Link 2</a>
         <a href='#'>Link 3</a>
       </div>
     </div>
-    <div class="marquee3k" data-speed="0.25" data-pausable="bool">
-      <p>Some marquee content</p>
+    <div class="marquee3k disco" data-speed="0.25" data-pausable="bool">
+      <p>Dreaming a thought... that could dream about a thought, that could think of the dreamer that thought, that could think of dreaming and getting a glimmer of God...</p>
     </div>
     <div id='todaysDate'></div>
   </div>
@@ -33,6 +33,12 @@
     </div>
     <div class="linkedin">
       <svgicon height="28" width="28" name="linkedin"></svgicon>
+    </div>
+    <div class="pocket">
+      <svgicon height="28" width="28" name="pocket"></svgicon>
+    </div>
+    <div class="soundcloud">
+      <svgicon height="28" width="28" name="soundcloud"></svgicon>
     </div>
   </div>
   <div class="share">
@@ -105,7 +111,7 @@
     transform-origin: 50% 50%;
   }
   .marquee3k {
-    color: white;
+    color: #DEDEDE;
     font-family: Arial;
     display: inline-block;
     width: 300px;
@@ -115,6 +121,7 @@
     padding: 20px;
     font-size: 14px;
     right: 0;
+    font-style: italic;
   }
 
   @keyframes topspin {

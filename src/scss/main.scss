@@ -1,6 +1,42 @@
 * {
   margin: 0;
-  // padding: 0;
+}
+
+.hello-wrap {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  text-align: center;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+.intro-heading {
+  color: blue;
+  float: left;
+  font-family: Georgia;
+  font-size: 50px;
+  line-height: 50px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+  text-transform: uppercase;
+  background-color: white;
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  border: 2px solid black;
+}
+
+.hello {
+  position: relative;
+  display: inline-block;
+  margin: 10% auto 0;
+  width: 400px;
+  height: auto;
+  transform: translateZ(20px);
 }
 
 button, svg, {
@@ -26,7 +62,16 @@ body {
 }
 
 button {
-  cursor:url('http://localhost:8080/static/finger.svg'), auto !important;
+  cursor:url('http://localhost:8080/static/finger.svg'), auto;
+  &.red {
+    cursor: url("http://localhost:8080/static/cursor/da-bomb.svg"), auto;
+  }
+  &.green {
+    cursor: url("http://localhost:8080/static/cursor/expand.svg"), auto;
+  }
+  svg {
+    pointer-events: none;
+  }
 }
 
 .day {
@@ -44,19 +89,32 @@ a {
 }
 @keyframes animate{
   0%{
-    cursor: url("http://localhost:8080/static/colorwave-1.svg"), auto;
+    cursor: url("http://localhost:8080/static/cursor/star-1.svg"), auto;
   }
   25%{
-    cursor: url("http://localhost:8080/static/colorwave-2.svg"), auto;
+    cursor: url("http://localhost:8080/static/cursor/star-2.svg"), auto;
   }
   50%{
-    cursor: url("http://localhost:8080/static/colorwave-3.svg"), auto;
+    cursor: url("http://localhost:8080/static/cursor/star-3.svg"), auto;
   }
   75%{
-    cursor: url("http://localhost:8080/static/colorwave-4.svg"), auto;
+    cursor: url("http://localhost:8080/static/cursor/star-4.svg"), auto;
   }
   100%{
-    cursor: url("http://localhost:8080/static/colorwave-5.svg"), auto;
+    cursor: url("http://localhost:8080/static/cursor/star-5.svg"), auto;
+  }
+}
+
+.disco {
+  animation: disco 1s infinite ease-in-out;
+}
+
+@keyframes disco {
+  from{
+    cursor: url("http://localhost:8080/static/cursor/disco-1.svg"), auto;
+  }
+  to{
+    cursor: url("http://localhost:8080/static/cursor/disco-2.svg"), auto;
   }
 }
 
@@ -69,7 +127,8 @@ a {
     // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 0px;
     border-radius: 0px;
-    border-left: 4px solid black;
+    border-left: 2px solid black;
+    background-clip: content-box;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -80,6 +139,43 @@ a {
 ::-webkit-scrollbar-corner {
       background-color: transparent;
 }
+
+::-webkit-scrollbar-button {
+  background: black;
+  // border: 5px solid black;
+  // outline: 5px solid black;
+  display: block;
+  // background-size:cover;
+  height: 25px;
+}
+
+// ::-webkit-scrollbar-button:vertical:increment {
+//     background-image: url("http://localhost:8080/static/arrow.svg");
+//     background-size: 20px 20px;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+
+::-webkit-scrollbar-button:vertical:decrement {
+    display: none;
+}
+
+::-webkit-scrollbar-button:start {
+    background-image: url("http://localhost:8080/static/arrow.svg");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+::-webkit-scrollbar-button:end {
+    background-image: url("http://localhost:8080/static/arrow-bottom.svg");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
 
 @-webkit-keyframes slide {
     from{
@@ -96,7 +192,6 @@ a {
 }
 
 .header {
-  cursor: url(../static/img/thumb.jpg), auto;
   width: 100%;
   background-color: black;
   height: auto;
@@ -132,17 +227,20 @@ a {
   position: absolute;
   bottom: 30px;
   right: 30px;
-  z-index: 1000;
+  z-index: 888;
   height: 100px;
   width: 175px;
   border: 2px solid white;
-  background-color: white;
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+  background-image: url("http://localhost:8080/static/half.jpg");
+  background-position: center -125px;
+  background-size: 125%;
+  background-repeat: no-repeat;
   .bink-text {
     text-align: center;
     font-size: 20px;
@@ -150,7 +248,7 @@ a {
     display: inline-block;
     font-family: Arial;
     font-weight: bold;
-    color: #0000ff;
+    color: #ff0080;
     z-index: 10000;
     padding-top: 25px;
     opacity: 0;
@@ -162,7 +260,7 @@ a {
     display: inline-block;
     font-family: Arial;
     font-weight: bold;
-    color: #0000ff;
+    color: #ff0080;
     opacity: 0;
   }
   @-webkit-keyframes shareblink {
@@ -173,8 +271,8 @@ a {
   }
   &:after {
     content: "";
-    // background-image: url("http://localhost:8080/static/share.gif");
-    background-color: #00ff80;
+    background-image: url("http://localhost:8080/static/box.jpg");
+    // background-color: #00ff80;
     opacity: .7;
     background-blend-mode: multiply;
     background-size: cover;
@@ -186,6 +284,7 @@ a {
     z-index: 999;
   }
   &:hover {
+    background-image: url("http://localhost:8080/static/half2.jpg");
     .bink-text {
       -webkit-animation: shareblink 0.7s infinite linear alternate;
       animation: shareblink 0.7s infinite linear alternate;
@@ -205,19 +304,27 @@ a {
   margin: 0;
   padding: 0;
   padding-top: 50px;
-  background-color: white;
-  background: #0000ff; /* Old browsers */
-  background: -moz-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff0080),color-stop(50%,#0000ff), color-stop(100%,#ff0080)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* IE10+ */
-  background: linear-gradient(to right,  #ff0080 0%,#0000ff 50%,#ff0080 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0080', endColorstr='#ff0080',GradientType=1 ); /* IE6-9 */
+  // background-color: white;
+  // background: #0000ff; /* Old browsers */
+  // background: -moz-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* FF3.6+ */
+  // background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff0080),color-stop(50%,#0000ff), color-stop(100%,#ff0080)); /* Chrome,Safari4+ */
+  // background: -webkit-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* Chrome10+,Safari5.1+ */
+  // background: -o-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* Opera 11.10+ */
+  // background: -ms-linear-gradient(left,  #ff0080 0%, #0000ff 50%,#ff0080 100%); /* IE10+ */
+  // background: linear-gradient(to right,  #ff0080 0%,#0000ff 50%,#ff0080 100%); /* W3C */
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0080', endColorstr='#ff0080',GradientType=1 ); /* IE6-9 */
+  //
+  // -webkit-animation: slide 15s linear infinite;
+  // -moz-animation: slide 15s linear infinite;
+  // -o-animation: slide 15s linear infinite;
+  background-color: #CCC;
+	background-image: linear-gradient(45deg, white 25%, transparent 25%, transparent 75%, white 75%, white),
+					  linear-gradient(45deg, white 25%, transparent 25%, transparent 75%, white 75%, white);
+	background-size: 10px 10px;
+	background-position:0px 0px, 5px 5px;
+  transition: background-image .2s ease-out;
 
-  -webkit-animation: slide 15s linear infinite;
-  -moz-animation: slide 15s linear infinite;
-  -o-animation: slide 15s linear infinite;
+
   &>.windows {
     z-index: 101;
   }
@@ -226,9 +333,9 @@ a {
 .social {
   display: block;
   position: absolute;
-  right: 30px;
-  bottom: calc(50% - 90px);
-  z-index: 1000;
+  right: 40px;
+  bottom: calc(50% - 120px);
+  z-index: 888;
   border: 1px solid rgba(0,0,0,.15);
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -269,7 +376,7 @@ a {
       fill: #ffff00;
     }
     &:hover {
-      border: 4px solid black;
+      border: 2px solid black;
       svg path, svg circle {
         fill: black;
       }
@@ -282,7 +389,7 @@ a {
       fill: #00ff80;
     }
     &:hover {
-      border: 4px solid white;
+      border: 2px solid white;
       svg path {
         fill: white;
       }
@@ -302,15 +409,41 @@ a {
     }
   }
   .linkedin {
+    border: 2px solid #5D5D5D;
+    background: #5D5D5D;
+    svg path {
+      fill: #5D5D5D;
+    }
+    &:hover {
+      border: 2px solid white;
+      svg path {
+        fill: white;
+      }
+    }
+  }
+  .pocket {
+    border: 2px solid #DEDEDE;
+    background: #DEDEDE;
+    svg path {
+      fill: #DEDEDE;
+    }
+    &:hover {
+      border: 2px solid black;
+      svg path {
+        fill: black;
+      }
+    }
+  }
+  .soundcloud {
     border: 2px solid white;
     background: white;
     svg path {
       fill: #ffffff;
     }
     &:hover {
-      border: 2px solid black;
+      border: 2px solid #0000ff;
       svg path {
-        fill: black;
+        fill: #0000ff;
       }
     }
   }
@@ -328,7 +461,7 @@ a {
 .box-md {
   //borders
   position: absolute;
-  border: 4px solid black;
+  border: 2px solid black;
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -351,7 +484,7 @@ a {
   position: absolute;
   height: 50px;
   width: 100%;
-  border-bottom: 4px solid black;
+  border-bottom: 2px solid black;
   background-color: rgba(255,255,255,.95);
   -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
@@ -388,10 +521,10 @@ a {
   .fancy span:after {
     content: "";
     position: absolute;
-    height: 5px;
-    border-bottom: 2.5px solid black;
-    border-top: 2.5px solid black;
-    top: 41%;
+    height: 6px;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    top: 30%;
     width: 600px;
   }
   .fancy span:before {
@@ -402,6 +535,12 @@ a {
     left: 100%;
     margin: 0 5px;
   }
+  .fancy .two:after, .fancy .two:before {
+    height: 17px;
+    border-top: none;
+  }
+
+
   .title-box {
     margin: 0 77px;
     overflow: hidden;
@@ -413,9 +552,15 @@ a {
   cursor:url('http://localhost:8080/static/finger.svg'), auto !important;
   top: 0;
   left: 0;
-  &:hover {
+  button:hover {
+    &.green{
+      background-color: #00FF80;
+    }
+    &.red {
+      background-color: #FF0080;
+    }
     svg {
-      display: inline-block;
+      visibility: visible;
     }
   }
 }
@@ -424,29 +569,38 @@ button.opt {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: 4px solid black;
+  border: 2px solid black;
   display: inline-block;;
   vertical-align: middle;
   position: relative;
   svg {
-    display: none;
+    visibility: hidden;
     pointer-events: none;
     path {
       fill: rgba(0,0,0,.75);
     }
   }
   &.green{
-    background-color: #00FF80;
+    background-color: #DEDEDE;
     margin-left: 5px;
     svg {
-      padding-bottom: 2px;
+      padding-bottom: 1px;
     }
   }
   &.red {
-    background-color: #FF0080;
+    background-color: #DEDEDE;
     svg {
-      padding-bottom: 2px;
+      padding-bottom: 1px;
     }
+  }
+}
+
+.active {
+    button.green{
+    background-color: #00FF80;
+  }
+  button.red {
+    background-color: #FF0080;
   }
 }
 
@@ -466,7 +620,8 @@ button.opt {
 }
 
 .computer-bounce {
-  // display: none;
+  display: none;
+  z-index: 100;
   width: 100px;
   height: 100px;
   position: absolute;
@@ -514,6 +669,9 @@ button.opt {
   height: 100%;
   width: 100%;
   display: block;
+  .application {
+    padding: 15px 25px;
+  }
 }
 
 .desktop {
@@ -522,8 +680,25 @@ button.opt {
   border: none;
   background: transparent;
   display: inline-block;
-  padding: 20px;
   z-index: 100;
+  animation: icon .25s infinite ease-in-out;
+  @keyframes icon{
+    0%{
+      cursor: url("http://localhost:8080/static/cursor/cursor-1.svg"), auto;
+    }
+    25%{
+      cursor: url("http://localhost:8080/static/cursor/cursor-2.svg"), auto;
+    }
+    50%{
+      cursor: url("http://localhost:8080/static/cursor/cursor-3.svg"), auto;
+    }
+    75%{
+      cursor: url("http://localhost:8080/static/cursor/cursor-4.svg"), auto;
+    }
+    100%{
+      cursor: url("http://localhost:8080/static/cursor/cursor-5.svg"), auto;
+    }
+  }
   .desktop-icon {
     height: 50px;
     width: 50px;
@@ -537,18 +712,20 @@ button.opt {
   .nest {
     margin: 0 auto;
     display: table;
-    border: 1.5px dashed blue;
+    // border: 1.5px dashed black;
     border-radius: 10%;
     margin-top: 5px;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255,255,255,.6);
   }
   p {
     text-align: center;
     padding: 0px 5px;
     font-weight: bold;
+    font-style: italic;
     font-family: "Arial", sans-serif;
     // font-family: Georgia;
     font-size: 14px;
+
   }
   &:focus {
     outline: 0;
@@ -566,9 +743,9 @@ button.opt {
   }
   &:hover {
     p {
-      background: linear-gradient(to right, #ffff00 20%, #00ff80 40%, #00ff80 60%, #ffff00 80%);
+      background: linear-gradient(to right, #FF0080 20%, #0000ff 40%, #0000ff 60%, #FF0080 80%);
       background-size: 200% auto;
-      color: #ffff00;
+      color: #0000ff;
       background-clip: text;
       text-fill-color: transparent;
       -webkit-background-clip: text;
@@ -588,25 +765,32 @@ button.opt {
 }
 #aboutme, #eightball {
   .wrappa-da-rappa {
-    display: block;
-    width: 100%;
-    height: 100%;
     position: absolute;
-    overflow: auto;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255,255,255,.9);
+    height: calc(100% - 60px);
+    margin-top: 50px;
+    display: inline-block;
+    overflow: overlay;
+    padding-top: 10px;
+    overflow-x: hidden;
   }
   .app-content {
     display: block;
     height: 100%;
-    padding-top: 50px;
     p {
-      font-size: 24px;
-      line-height: 1.17em;
+      font-size: 1.15em;
+      line-height: 1.5em;
       font-weight: bold;
-      padding: 25px;
+      padding: 10px 35px;
       a {
         text-decoration: none;
         color: #0000ff !important;
+        &:hover {
+          background-color: blue;
+          color: white !important;
+          padding: 0 5px;
+          transition: all .2s;
+        }
       }
     }
   }
@@ -615,6 +799,8 @@ button.opt {
 #eightball {
   .wrappa-da-rappa {
     background: radial-gradient(ellipse at   bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    width: 100%;
     #stars {
       width: 1px;
       height: 1px;
@@ -785,7 +971,7 @@ button.opt {
     .embed-container {
       vertical-align: middle;
       // display: table-cell;
-      height: calc(100% - 50px);
+      height: calc(100% - 60px);
       margin-top: 50px;
       width: 100%;
       iframe {
@@ -803,7 +989,7 @@ button.opt {
 }
 
 .windows {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   width: 100vw;
   #solitare {
      .app-content {
@@ -869,11 +1055,12 @@ button.opt {
       background: rgba(35,31,32,.8);
       font-family: 'Inconsolata', monospace;
       color: #00ff80;
-      height: calc(100% - 50px);
+      height: calc(100% - 60px);
       margin-top: 50px;
       display: inline-block;
       overflow: overlay;
       padding-top: 10px;
+      overflow-x: hidden;
       .skills-wrapper {
         border: 1px solid #00ff80;
         margin: 5px auto;
@@ -945,7 +1132,7 @@ button.opt {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity .75s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
@@ -980,7 +1167,7 @@ button.opt {
     border: none;
     cursor: pointer;
     font-family: Arial;
-    font-weight: bold;
+    // font-weight: bold;
     font-size: 16px;
     padding: 17px 20px 17px 15px;
 }
@@ -1085,5 +1272,17 @@ button.opt {
 
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
 }
