@@ -16,19 +16,21 @@
     </div>
       <div class="wrappa-da-rappa">
           <div class="app-content" name="music">
+            <div id="sound-image-wrap">
+              <img height="100px" width="100px" class="sound-image" src="" />
+            </div>
+            <div class="tracklist">
+              <ol class="datracklist"></ol>
+            </div>
             <div class="ui container">
               <div class="ui segment">
                 <!-- <div id="loader" class="ui active inverted dimmer">
                   <div class="ui text loader">Loading</div>
                 </div>  -->
                 <iframe id="soundcloud" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/376667462&sharing=false&auto_play=false&font=Georgia&show_comments=false&theme_color=0000ff&color=0000ff&show_playcount=false&show_bpm=false"></iframe>
-                <div id="sound-image-wrap"><img height="100px" width="100px" class="sound-image" src="" /></div>
+                <span class='info-title'></span>
+                <span class='info-artist'></span>
                 <div id="controls">
-                  <span class='info-title'></span>
-                  <span class='info-artist'></span>
-                  <div class="tracklist">
-                    <ol class="datracklist"></ol>
-                  </div>
                   <div class="ui icon buttons">
                     <button id="back-button" class="ui button">
                     <svgicon name="prev" height="20" width="20" :original="true"></svgicon>
@@ -43,7 +45,6 @@
                     </button>
                   </div>
                 </div>
-                <br>
                 <div class="progress-rap">
                   <div id="progress-container" class="ui orange progress">
                     <div id="progress-bar" class="bar"></div>
@@ -79,8 +80,7 @@
     updated () {
       var widget = new SoundcloudWidget('soundcloud')
       var playBtn = document.getElementById('play-button')
-      var playIcon = playBtn.querySelector('i')
-      console.log(playIcon)
+      /* var playIcon = playBtn.querySelector('i') */
 
       var muteBtn = document.getElementById('mute-button')
       var muteIcon = muteBtn.querySelector('i')
@@ -156,7 +156,6 @@
           var thisList = soundList
           var list = document.querySelector('.datracklist')
           var nullFound = false
-          /* var tracknumber = '' */
           for (var i = 0; i < thisList.length; i++) {
             if (thisList[i].title == null) {
               nullFound = true
@@ -164,9 +163,20 @@
             }
           }
           if (!nullFound) {
-            for (var n = 0; n < thisList.length; i++) {
-              list.innerHTML += '<li>' + soundList[n].title + '</li>'
+            var listing = ''
+            for (var n = 0; n < thisList.length; n++) {
+              listing += '<li data-track="' + n + '"">' + soundList[n].title + '</li>'
+              if (thisList.length === (n + 1)) {
+                list.innerHTML = listing
+                break
+              }
             }
+            var seekTrack = document.querySelector('.datracklist')
+            seekTrack.addEventListener('click', function (event) {
+              if (event.target && event.target.nodeName === 'LI') {
+                widget.skip(event.target.dataset.track)
+              }
+            })
           }
         })
         widget.getCurrentSound().then(function (soundObject) {
@@ -244,23 +254,21 @@
 <style>
   #soundcloud {
     visibility: hidden;
+    height: 0;
   }
   .sc-font-light {
     font-family: Georgia !important;
-  }
-  .ui.container {
-    margin-top: 25px;
   }
   .ui.progress .bar {
     min-width: 2px;
   }
   #controls {
     width: 100%;
-    position: relative;
-    display: block;
-    height: 50px;
-    top: 10px;
-    margin-bottom: 30px;
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    bottom: 0;
+    left: 0;
   }
   .ui.buttons:before {
     content: "";
@@ -314,6 +322,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    height: 100px;
   }
 
 
@@ -714,6 +723,8 @@
     .progress-rap {
       border-top: 2px solid black;
       background-color: rgba(255, 255, 255, 0.3);
+      position: relative;
+      bottom: -17px;
     }
     #sound-image-wrap {
       height: 100px;
@@ -722,11 +733,38 @@
       overflow: hidden;
       margin: 0 auto;
       position: absolute;
+      top: 15%;
       left: 0;
       right: 0;
-      top: 90px;
     }
 
+    #sound-image-wrap {
+      display: block;
+      z-index: 100;
+    }
 
+    .ui.container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
 
+    .tracklist {
+      overflow-y: scroll;
+      height: 35%;
+      width: 100%;
+      position: absolute;
+      bottom: 100px;
+      background-color: white;
+      color: blue;
+      z-index: 50;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+    .tracklist li {
+      padding: 10px 0;
+    }
+    .tracklist li:not(:last-child) {
+      border-bottom: 2px solid black;
+    }
 </style>
